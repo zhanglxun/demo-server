@@ -1,0 +1,152 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #gateway 开启服务注册和发现的功能，并且自动根据服务发现为每一个服务创建了一个 router，这个 router 将以服务名开头的请求路径转发到对应的服务。
+          lower-case-service-id: true #使用小写服务名，默认是大写，
+      routes: #配置路由路径
+        - id: consumer-console
+          uri: lb://consumer-console-remote
+          predicates:
+            - Path=/console/**
+          filters:
+            - StripPrefix=1
+        #mobile项目路由
+        - id: consumer-mobile
+          uri: lb://consumer-mobile-remote
+          predicates:
+            - Path=/mobile/**
+          filters:
+            - StripPrefix=1
+        #IM项目路由
+        - id: consumer-im
+          uri: lb://consumer-im
+          predicates:
+            - Path=/im/**
+          filters:
+            - StripPrefix=1
+        #海外项目路由
+        - id: consumer-abroad-remote
+          uri: lb://consumer-abroad-remote
+          predicates:
+            - Path=/abroad/**
+          filters:
+            - StripPrefix=1
+        #guardianship项目路由
+        - id: consumer-guardianship
+          uri: lb://consumer-guardianship
+          predicates:
+            - Path=/guardianship/**
+          filters:
+            - StripPrefix=1
+        #console-data项目路由
+        - id: consumer-console-data
+          uri: lb://consumer-console-data
+          predicates:
+            - Path=/console-data/**
+          filters:
+            - StripPrefix=1
+
+        # =================服务端路由=================
+        #system项目路由
+        - id: provider-system
+          uri: lb://provider-system
+          predicates:
+            - Path=/provider-system/**
+          filters:
+            - StripPrefix=1
+        #task项目路由
+        - id: provider-task
+          uri: lb://provider-task
+          predicates:
+            - Path=/provider-task/**
+          filters:
+            - StripPrefix=1
+        #provider-im项目路由
+        - id: provider-im
+          uri: lb://provider-im
+          predicates:
+            - Path=/provider-im/**
+          filters:
+            - StripPrefix=1
+        #provider-guardianship项目路由
+        - id: provider-guardianship
+          uri: lb://provider-guardianship
+          predicates:
+            - Path=/provider-guardianship/**
+          filters:
+            - StripPrefix=1
+        #provider-organization项目路由
+        - id: provider-organization
+          uri: lb://provider-organization
+          predicates:
+            - Path=/provider-organization/**
+          filters:
+            - StripPrefix=1
+        #provider-message项目路由
+        - id: provider-message
+          uri: lb://provider-message
+          predicates:
+            - Path=/provider-message/**
+          filters:
+            - StripPrefix=1
+        #provider-mall项目路由
+        - id: provider-mall
+          uri: lb://provider-mall
+          predicates:
+            - Path=/provider-mall/**
+          filters:
+            - StripPrefix=1
+        #provider-vipclinic项目路由
+        - id: provider-vipclinic
+          uri: lb://provider-vipclinic
+          predicates:
+            - Path=/provider-vipclinic/**
+          filters:
+            - StripPrefix=1
+        #provider-clear项目路由
+        - id: provider-clear
+          uri: lb://provider-clear
+          predicates:
+            - Path=/provider-clear/**
+          filters:
+            - StripPrefix=1
+        #provider-content项目路由
+        - id: provider-content
+          uri: lb://provider-content
+          predicates:
+            - Path=/provider-content/**
+          filters:
+            - StripPrefix=1
+        #auth项目路由
+        - id: provider-auth
+          uri: lb://provider-auth
+          predicates:
+            - Path=/auth/**,/oauth/**,/actuator/**
+          filters:
+            - StripPrefix=1
+        #data-analysis项目路由
+        - id: data-analysis
+          uri: lb://data-analysis
+          predicates:
+            - Path=/data-analysis/**
+          filters:
+            - StripPrefix=1
+      #链接数与超时时间控制
+      httpclient:
+        # 全局的响应超时时间，网络链接后，后端服务多久不返回网关就报错 The response timeout.
+        response-timeout: PT10S
+        # 全局的TCP连接超时时间默认时间是45秒，修改为5秒
+        connect-timeout: 5000
+        pool:
+          # 最大空闲时间
+          max-idle-time: 10000
+          # 最大连接数
+          max-connections: 10000
+          # 最大连接时间
+          max-life-time: 10
+          # 返回时间
+          acquire-timeout: 10
+          # 设置固定链接池
+          type: fixed

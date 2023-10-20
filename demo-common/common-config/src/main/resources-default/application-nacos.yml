@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.addr.url}
+        ip-delete-timeout: 7000

@@ -1,0 +1,11 @@
+app:
+  id: api-server
+apollo:
+  meta: http://192.168.3.135:8080
+  cluster: default
+  autoUpdateInjectedSpringProperties: true   #是否开启 Spring 参数自动更新
+  bootstrap:
+    enabled: true #是否开启 Apollo
+    namespaces: application,anglesound.comm
+    eagerLoad:
+      enabled: true # put apollo initialization before logging system initialization

@@ -1,0 +1,11 @@
+server:
+  # tomcat 优化参数
+  tomcat:
+    uri-encoding: UTF-8
+    #最小线程数
+    min-spare-threads: 100
+      #最大线程数
+    max-threads: 800
+    accept-count: 300
+    connection-timeout: 10000ms
+    max-connections: 10000

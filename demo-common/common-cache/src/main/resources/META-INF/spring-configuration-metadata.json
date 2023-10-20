@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "jumper.cache",
+      "type": "com.jumper.common.cache.application.CacheProperties",
+      "sourceType": "com.jumper.common.cache.application.CacheProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jumper.cache.cluster-type",
+      "type": "com.jumper.common.cache1.application.CacheConstact$Cluster",
+      "description": "二级缓存类型",
+      "sourceType": "com.jumper.common.cache.application.CacheProperties"
+    },
+    {
+      "name": "jumper.cache.enable",
+      "type": "java.lang.Boolean",
+      "description": "是否开启缓存",
+      "sourceType": "com.jumper.common.cache.application.CacheProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "jumper.cache.memory-type",
+      "type": "com.jumper.common.cache1.application.CacheConstact$Memory",
+      "description": "一级缓存类型枚举",
+      "sourceType": "com.jumper.common.cache.application.CacheProperties"
+    },
+    {
+      "name": "jumper.cache.maximumMemory",
+      "type": "java.lang.Integer",
+      "description": "剩余内存上限,单位MB",
+      "sourceType": "com.jumper.common.cache.application.CacheProperties",
+      "defaultValue": 50
+    }
+  ],
+  "hints": []
+}

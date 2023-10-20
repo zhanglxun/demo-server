@@ -1,0 +1,18 @@
+feign:
+  #fegin请求超时时间
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 600000
+# Feign 配置
+  httpclient:
+    enabled: true
+  okhttp:
+    enabled: false
+  sentinel:  # 开启feign对sentinel的支持
+    enabled: false
+  #feign需要继续传递的参数名称
+  sendParamNames:
+    - ${jumper.page.key.num:pageNum}
+    - ${jumper.page.key.size:pageSize}

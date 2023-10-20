@@ -1,0 +1,9 @@
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+        boot: INFO
+    com.jumper.provider: debug
+    com.jumper.data: debug
+  config: classpath:log/logging-config.xml

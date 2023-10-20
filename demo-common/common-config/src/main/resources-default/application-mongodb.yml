@@ -1,0 +1,10 @@
+spring:
+  #mongo db配置！
+  data:
+    mongodb:
+      authentication-database: ${mongodb.dbs}
+      host: ${mongodb.url}
+      port: ${mongodb.port}
+      database: ${mongodb.dbs}
+      username: ${mongodb.dbs}
+      password: ${mongodb.password}

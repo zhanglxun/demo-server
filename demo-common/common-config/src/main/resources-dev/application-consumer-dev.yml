@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    include:
+      - admin
+      - log
+      - nacos
+      - feign
+      - redis
+      - apollo
+      - rabbitmq
+      - mongodb
+      - tomcat

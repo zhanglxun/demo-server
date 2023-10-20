@@ -1,0 +1,20 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: ${admin.addr.url}
+        username: "admin"
+        password: "admin"
+        instance:
+          prefer-ip: true
+#### 暴露端点
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      enabled: true
+      show-details: ALWAYS
